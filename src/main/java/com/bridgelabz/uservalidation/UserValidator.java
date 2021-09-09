@@ -8,17 +8,13 @@ public class UserValidator
 	private static final String NAME_PATTERN="^[A-Z][a-z]{2,}$";
 	
 	
-	public boolean validateFirstName(String name)
+	public boolean validateName(String name)
 	{
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(name).matches();
 	}
 	
-	public boolean validateLastName(String name)
-	{
-		Pattern pattern = Pattern.compile(NAME_PATTERN);
-		return pattern.matcher(name).matches();
-	}
+	
 	
 	
 }
