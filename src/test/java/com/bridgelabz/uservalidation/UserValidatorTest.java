@@ -137,5 +137,13 @@ public class UserValidatorTest
 		boolean isValid=userValidator.validatePassword("Abc12@we3");
 		Assert.assertTrue(isValid);
 	}
+	@Test
+	public void givenPassword_WhenLessThanEightCharacters_ShouldReturnFalse()
+	{
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validatePassword("A3bc1@");
+		Assert.assertFalse(isValid);
+		
+	}
 	
 }
