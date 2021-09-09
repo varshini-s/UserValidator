@@ -242,20 +242,38 @@ public class UserValidatorTest
 	@Test
 	public void givenPhoneNumber_WhenValid_ShouldReturnTrue() 
 	{
-			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePhoneNumber("91 9191123498");
-		Assert.assertTrue(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validatePhoneNumber("91 9191123498");
+			Assert.assertTrue(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+	
 		
 	}
 	
 	@Test
 	public void givenPhoneNumber_WhenInValid_ShouldReturnFalse() 
 	{
-			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePhoneNumber("123456789");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validatePhoneNumber("123456789");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
