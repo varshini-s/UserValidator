@@ -26,6 +26,8 @@ public class UserValidatorTest
 			e.printStackTrace();
 		}
 	}
+	
+	
 	@Test
 	public void givenFirstName_WhenShort_ShouldReturnFalse() 
 	{
@@ -80,7 +82,23 @@ public class UserValidatorTest
 		}
 
 	}
+	@Test
+	public void givenFirstName_WhenNull_ShouldReturnInvalidMessage() 
+	{
 
+		UserValidator userValidator = new UserValidator();
+		boolean isValid;
+		try 
+		{
+			
+			isValid = userValidator.validateName(null);
+			
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals("Please enter valid Name" , e.getMessage());
+		}
+	}
+	
 	@Test
 	public void givenLastName_WhenProper_ShouldReturnTrue() 
 	{
