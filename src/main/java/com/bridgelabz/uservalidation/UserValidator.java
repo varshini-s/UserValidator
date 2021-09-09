@@ -10,10 +10,19 @@ public class UserValidator
 	private static final String PHONE_NUMBER_PATTERN="^[0-9]{2}[ ][0-9]{10}$";
 	private static final String PASSWORD_PATERN="^(?=.*[0-9])(?=.*[A-Z])(?=.{8,}$)[0-9a-zA-Z]*[@#$%][0-9a-zA-Z]*$";	
 	
-	public boolean validateName(String name)
+	public boolean validateName(String name) throws UserValidatorException 
 	{
-		Pattern pattern = Pattern.compile(NAME_PATTERN);
-		return pattern.matcher(name).matches();
+		try
+		{
+			Pattern pattern = Pattern.compile(NAME_PATTERN);
+			return pattern.matcher(name).matches();
+			
+		}
+		catch (NullPointerException e) 
+		{
+			throw new UserValidatorException("Please enter valid Name");
+		}
+		
 	}
 	public boolean validateEMail(String eMailID)
 	{
