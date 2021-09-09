@@ -48,14 +48,23 @@ public class UserValidator
 		}
 		catch (NullPointerException e) 
 		{
-			throw new UserValidatorException("Please enter valid mail");
+			throw new UserValidatorException("Please enter valid phone number");
 		}
 		
 	}
-	public boolean validatePassword(String passWord)
+	public boolean validatePassword(String passWord) throws UserValidatorException
 	{
-		Pattern pattern = Pattern.compile(PASSWORD_PATERN);
-		return pattern.matcher(passWord).matches();
+		try
+		{
+			Pattern pattern = Pattern.compile(PASSWORD_PATERN);
+			return pattern.matcher(passWord).matches();
+			
+		}
+		catch (NullPointerException e) 
+		{
+			throw new UserValidatorException("Please enter valid password");
+		}
+		
 	}
 	
 	
