@@ -34,7 +34,7 @@ public class UserValidator
 		}
 		catch (NullPointerException e) 
 		{
-			throw new UserValidatorException("Please enter valid email id");
+			throw new UserValidatorException("Please enter valid mail");
 		}
 	
 	}

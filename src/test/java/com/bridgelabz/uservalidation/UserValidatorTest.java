@@ -9,6 +9,7 @@ import org.junit.rules.ExpectedException;
 public class UserValidatorTest 
 {
 
+	
 	@Test
 	public void givenFirstName_WhenProper_ShouldReturnTrue() 
 	{
@@ -83,7 +84,7 @@ public class UserValidatorTest
 
 	}
 	@Test
-	public void givenFirstName_WhenNull_ShouldReturnInvalidMessage() 
+	public void givenFirstName_WhenNull_ShouldThrowException() 
 	{
 
 		UserValidator userValidator = new UserValidator();
@@ -171,7 +172,7 @@ public class UserValidatorTest
 	}
 
 	@Test
-	public void givenLastName_WhenNull_ShouldReturnInvalidMessage() 
+	public void givenLastName_WhenNull_ShouldThrowException() 
 	{
 
 		UserValidator userValidator = new UserValidator();
@@ -186,14 +187,56 @@ public class UserValidatorTest
 			Assert.assertEquals("Please enter valid Name" , e.getMessage());
 		}
 	}
-	@Test
+	public void givenEmail_WhenValid_ShouldReturnTrue() 
+	{
+			
+		UserValidator userValidator = new UserValidator();
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateEMail("abc@gmail.com");
+			Assert.assertTrue(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public void givenEmail_WhenInValid_ShouldReturnFalse() 
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateEMail("abcgmail.com");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateEMail("abcgmail.com");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 		
+	}
+	@Test
+	public void givenEmail_WhenNull_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid;
+		try 
+		{
+			
+			isValid = userValidator.validateEMail(null);
+			
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals("Please enter valid mail" , e.getMessage());
+		}
 	}
 	
 	@Test
