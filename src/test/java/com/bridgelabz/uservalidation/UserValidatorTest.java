@@ -276,22 +276,59 @@ public class UserValidatorTest
 		
 		
 	}
-	
+	@Test
+	public void givenPhoneNumber_WhenNull_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid;
+		try 
+		{
+			
+			isValid = userValidator.validatePhoneNumber(null);
+			
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals("Please enter valid phone number" , e.getMessage());
+		}
+	}
 	
 	@Test
 	public void givenPassword_WhenValid_ShouldReturnTrue() 
 	{
-			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abc12@we3");
-		Assert.assertTrue(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validatePassword("Abc12@we3");
+			Assert.assertTrue(isValid);		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+			
+		
 	}
 	@Test
 	public void givenPassword_WhenLessThanEightCharacters_ShouldReturnFalse()
 	{
+		
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("A3bc1@");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validatePassword("A3bc1@");
+			Assert.assertFalse(isValid);		
+			
+		}
+		catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+	
 		
 	}
 	
@@ -299,33 +336,97 @@ public class UserValidatorTest
 	public void givenPassword_WhenNoUpperCaseLetters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("azaz3bc1@");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validatePassword("azaz3bc1@");
+			Assert.assertFalse(isValid);		
+			
+		}
+		catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		
 	}
 	@Test
 	public void givenPassword_WhenNoNumbers_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abcdef@ghij");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validatePassword("Abcdef@ghij");
+			Assert.assertFalse(isValid);		
+			
+		}
+		catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	@Test
 	public void givenPassword_WhenNoSpecialCharacters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abc123456av");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid=userValidator.validatePassword("Abc123456av");
+			Assert.assertFalse(isValid);		
+			
+		}
+		catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+		
+	
 		
 	}
 	@Test
 	public void givenPassword_WhenMoreThanOneSpecialCharacters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abc12345@@@");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid=userValidator.validatePassword("Abc12345@@@");
+			Assert.assertFalse(isValid);		
+			
+		}
+		catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
+		 
 		
+	}
+	@Test
+	public void givenPassword_WhenNull_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid;
+		try 
+		{
+			
+			isValid = userValidator.validatePassword(null);
+			
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals("Please enter valid password" , e.getMessage());
+		}
 	}
 	
 
