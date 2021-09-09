@@ -53,6 +53,15 @@ public class UserValidatorTest
 		Assert.assertFalse(isValid);
 
 	}
+	@Test
+	public void givenLastName_WhenProper_ShouldReturnTrue() 
+	{
+			
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateName("Wilson");
+		Assert.assertTrue(isValid);
+		
+	}
 	
 
 	
