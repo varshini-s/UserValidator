@@ -38,10 +38,19 @@ public class UserValidator
 		}
 	
 	}
-	public boolean validatePhoneNumber(String phoneNumber)
+	public boolean validatePhoneNumber(String phoneNumber) throws UserValidatorException
 	{
-		Pattern pattern = Pattern.compile(PHONE_NUMBER_PATTERN);
-		return pattern.matcher(phoneNumber).matches();
+		try
+		{
+			Pattern pattern = Pattern.compile(PHONE_NUMBER_PATTERN);
+			return pattern.matcher(phoneNumber).matches();
+			
+		}
+		catch (NullPointerException e) 
+		{
+			throw new UserValidatorException("Please enter valid mail");
+		}
+		
 	}
 	public boolean validatePassword(String passWord)
 	{
