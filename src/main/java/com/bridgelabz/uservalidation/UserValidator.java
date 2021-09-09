@@ -14,5 +14,11 @@ public class UserValidator
 		return pattern.matcher(name).matches();
 	}
 	
+	public boolean validateLastName(String name)
+	{
+		Pattern pattern = Pattern.compile(NAME_PATTERN);
+		return pattern.matcher(name).matches();
+	}
+	
 	
 }
