@@ -108,8 +108,16 @@ public class UserValidatorTest
 		
 	}
 	
+	@Test
+	public void givenPhoneNumber_WhenValid_ShouldReturnTrue() 
+	{
+			
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validatePhoneNumber("91 9191123498");
+		Assert.assertTrue(isValid);
+		
+	}
 	
-
 	
 
 }
