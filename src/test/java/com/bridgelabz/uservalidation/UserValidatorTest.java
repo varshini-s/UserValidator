@@ -35,6 +35,15 @@ public class UserValidatorTest
 		Assert.assertFalse(isValid);
 
 	}
+	@Test
+	public void givenFirstName_WhenContainsNumbers_ShouldReturnFalse() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateName("Emma123");
+		Assert.assertFalse(isValid);
+
+	}
 	
 
 	
