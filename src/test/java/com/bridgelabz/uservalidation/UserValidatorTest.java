@@ -98,7 +98,16 @@ public class UserValidatorTest
 		Assert.assertFalse(isValid);
 
 	}
-
+	@Test
+	public void givenEmail_WhenInValid_ShouldReturnFalse() 
+	{
+			
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateEMail("abcgmail.com");
+		Assert.assertFalse(isValid);
+		
+	}
+	
 	
 
 	
