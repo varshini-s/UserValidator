@@ -44,6 +44,15 @@ public class UserValidatorTest
 		Assert.assertFalse(isValid);
 
 	}
+	@Test
+	public void givenFirstName_WhenContainsSpecialCharacters_ShouldReturnFalse() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateName("Emma@#");
+		Assert.assertFalse(isValid);
+
+	}
 	
 
 	
