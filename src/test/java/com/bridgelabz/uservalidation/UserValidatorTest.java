@@ -62,6 +62,15 @@ public class UserValidatorTest
 		Assert.assertTrue(isValid);
 		
 	}
+	@Test
+	public void givenLastName_WhenShort_ShouldReturnFalse() 
+	{
+			
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateName("Em");
+		Assert.assertFalse(isValid);
+		
+	}
 	
 
 	
