@@ -24,10 +24,19 @@ public class UserValidator
 		}
 		
 	}
-	public boolean validateEMail(String eMailID)
+	public boolean validateEMail(String eMailID) throws UserValidatorException
 	{
-		Pattern pattern = Pattern.compile(EMAIL_ID_PATTERN);
-		return pattern.matcher(eMailID).matches();
+		try
+		{
+			Pattern pattern = Pattern.compile(EMAIL_ID_PATTERN);
+			return pattern.matcher(eMailID).matches();
+			
+		}
+		catch (NullPointerException e) 
+		{
+			throw new UserValidatorException("Please enter valid email id");
+		}
+	
 	}
 	public boolean validatePhoneNumber(String phoneNumber)
 	{
