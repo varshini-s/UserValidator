@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class UserValidatorTest 
 {
@@ -13,17 +14,34 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emma");
-		Assert.assertTrue(isValid);
-
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Emma");
+			Assert.assertTrue(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	@Test
 	public void givenFirstName_WhenShort_ShouldReturnFalse() 
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Em");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Em");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 
 	}
 	@Test
@@ -31,8 +49,17 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emm@");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Emma@@");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 
 	}
 	@Test
@@ -40,35 +67,53 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emma123");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Emma1234");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 
 	}
-	@Test
-	public void givenFirstName_WhenContainsSpecialCharacters_ShouldReturnFalse() 
-	{
 
-		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emma@#");
-		Assert.assertFalse(isValid);
-
-	}
 	@Test
 	public void givenLastName_WhenProper_ShouldReturnTrue() 
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Wilson");
-		Assert.assertTrue(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Willson");
+			Assert.assertTrue(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	@Test
 	public void givenLastName_WhenShort_ShouldReturnFalse() 
 	{
-			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Em");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("W");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	@Test
@@ -76,28 +121,38 @@ public class UserValidatorTest
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emm@");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Willson@@");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	@Test
 	public void givenLastName_WhenContainsNumbers_ShouldReturnFalse() 
 	{
-
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("willson123");
-		Assert.assertFalse(isValid);
+		boolean isValid;
+		try 
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(UserValidatorException.class);
+			isValid = userValidator.validateName("Willson123");
+			Assert.assertFalse(isValid);
+		} catch (UserValidatorException e) 
+		{
+			e.printStackTrace();
+		}
 
 	}
-	@Test
-	public void givenLastName_WhenContainsSpecialCharacters_ShouldReturnFalse() 
-	{
 
-		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Willson@#");
-		Assert.assertFalse(isValid);
-
-	}
+	
 	@Test
 	public void givenEmail_WhenInValid_ShouldReturnFalse() 
 	{
