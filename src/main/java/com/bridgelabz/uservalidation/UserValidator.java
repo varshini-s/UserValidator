@@ -6,6 +6,7 @@ public class UserValidator
 {
 
 	private static final String NAME_PATTERN="^[A-Z][a-z]{2,}$";
+	private static final String EMAIL_ID_PATTERN="^[a-z0-9]+([+[.]_-][a-z0-9]+){0,1}@[a-z0-9]+[.][a-z]{2,4}([.][a-z]{2,4}){0,1}$";
 	
 	
 	public boolean validateName(String name)
@@ -13,7 +14,11 @@ public class UserValidator
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(name).matches();
 	}
-	
+	public boolean validateEMail(String eMailID)
+	{
+		Pattern pattern = Pattern.compile(EMAIL_ID_PATTERN);
+		return pattern.matcher(eMailID).matches();
+	}
 	
 	
 	
