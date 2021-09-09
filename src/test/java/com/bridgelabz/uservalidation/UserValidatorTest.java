@@ -80,6 +80,15 @@ public class UserValidatorTest
 		Assert.assertFalse(isValid);
 		
 	}
+	@Test
+	public void givenLastName_WhenContainsNumbers_ShouldReturnFalse() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateName("willson123");
+		Assert.assertFalse(isValid);
+
+	}
 	
 
 	
