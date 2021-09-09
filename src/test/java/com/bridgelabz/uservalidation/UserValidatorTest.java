@@ -11,12 +11,20 @@ public class UserValidatorTest
 	@Test
 	public void givenFirstName_WhenProper_ShouldReturnTrue() 
 	{
-			
+
 		UserValidator userValidator = new UserValidator();
 		boolean isValid=userValidator.validateName("Emma");
 		Assert.assertTrue(isValid);
-		
+
+	}
+	@Test
+	public void givenFirstName_WhenShort_ShouldReturnFalse() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validateName("Em");
+		Assert.assertFalse(isValid);
+
 	}
 
-	
 }
