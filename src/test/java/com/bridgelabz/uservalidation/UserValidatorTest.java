@@ -118,6 +118,15 @@ public class UserValidatorTest
 		
 	}
 	
+	@Test
+	public void givenPhoneNumber_WhenInValid_ShouldReturnFalse() 
+	{
+			
+		UserValidator userValidator = new UserValidator();
+		boolean isValid=userValidator.validatePhoneNumber("123456789");
+		Assert.assertFalse(isValid);
+		
+	}
 	
-
+	
 }
