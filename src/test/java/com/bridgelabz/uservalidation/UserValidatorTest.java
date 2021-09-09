@@ -98,6 +98,7 @@ public class UserValidatorTest
 		Assert.assertFalse(isValid);
 
 	}
+
 	
 
 	
