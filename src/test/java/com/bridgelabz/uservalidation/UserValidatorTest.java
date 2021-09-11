@@ -315,7 +315,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validatePhoneNumber(null);
+			userValidator.validatePassword(null);
 
 		}
 		catch (UserValidatorException e) 
@@ -323,6 +323,23 @@ public class UserValidatorTest
 			Assert.assertEquals(ExceptionType.ENTERED_NULL ,e.type);
 		}
 	}
+	
+	@Test
+	public void givenPassword_WhenEmpty_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+
+		try 
+		{
+			userValidator.validatePassword("");
+
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals(ExceptionType.ENTERED_EMPTY ,e.type);
+		}
+	}
+
 
 
 }
