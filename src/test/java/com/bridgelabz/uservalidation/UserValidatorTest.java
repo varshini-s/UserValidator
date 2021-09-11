@@ -186,6 +186,22 @@ public class UserValidatorTest
 			Assert.assertEquals(ExceptionType.ENTERED_NULL ,e.type);
 		}
 	}
+	@Test
+	public void givenEmail_WhenEmpty_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+
+		try 
+		{
+			userValidator.validateEMail("");
+
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals(ExceptionType.ENTERED_EMPTY ,e.type);
+		}
+	}
+
 
 	
 	@Test
