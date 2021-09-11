@@ -133,6 +133,23 @@ public class UserValidatorTest
 		}
 	}
 	@Test
+	public void givenLastName_WhenEmpty_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+
+		try 
+		{
+			userValidator.validateName("");
+
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals(ExceptionType.ENTERED_EMPTY ,e.type);
+		}
+	}
+
+	
+	@Test
 	public void givenEmail_WhenValid_ShouldReturnTrue() 
 	{
 
