@@ -243,6 +243,22 @@ public class UserValidatorTest
 	}
 
 	@Test
+	public void givenPhoneNumber_WhenEmpty_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+
+		try 
+		{
+			userValidator.validatePhoneNumber("");
+
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals(ExceptionType.ENTERED_EMPTY ,e.type);
+		}
+	}
+
+	@Test
 	public void givenPassword_WhenValid_ShouldReturnTrue() 
 	{
 			
