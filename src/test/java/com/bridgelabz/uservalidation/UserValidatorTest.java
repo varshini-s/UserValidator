@@ -62,6 +62,21 @@ public class UserValidatorTest
 			Assert.assertEquals(ExceptionType.ENTERED_NULL ,e.type);
 		}
 	}
+	@Test
+	public void givenFirstName_WhenEmpty_ShouldThrowException() 
+	{
+
+		UserValidator userValidator = new UserValidator();
+
+		try 
+		{
+			userValidator.validateName("");
+
+		} catch (UserValidatorException e) 
+		{
+			Assert.assertEquals(ExceptionType.ENTERED_EMPTY ,e.type);
+		}
+	}
 
 
 
