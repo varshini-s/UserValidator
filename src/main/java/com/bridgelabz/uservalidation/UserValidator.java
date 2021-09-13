@@ -42,31 +42,29 @@ public class UserValidator
 	}};
 	
 	
-
-	
-	public boolean validateEMail(String eMailID) throws UserValidatorException
+	ValidationIF validateEMail= eMailID->{try
 	{
-		try
+		if(eMailID.isEmpty())
 		{
-			if(eMailID.isEmpty())
-			{
-				throw new UserValidatorException(ExceptionType.ENTERED_EMPTY,"Please enter valid mail");
-			}
-			else
-			{		
-				Pattern pattern = Pattern.compile(EMAIL_ID_PATTERN);
-				return pattern.matcher(eMailID).matches();
-
-			}
-
+			throw new UserValidatorException(ExceptionType.ENTERED_EMPTY,"Please enter valid mail");
+		}
+		else
+		{		
+			Pattern pattern = Pattern.compile(EMAIL_ID_PATTERN);
+			return pattern.matcher(eMailID).matches();
 
 		}
-		catch (NullPointerException e) 
-		{
-			throw new UserValidatorException(ExceptionType.ENTERED_NULL,"Please enter valid mail");
-		}
+
 
 	}
+	catch (NullPointerException e) 
+	{
+		throw new UserValidatorException(ExceptionType.ENTERED_NULL,"Please enter valid mail");
+	}
+};
+
+	
+
 	public boolean validatePhoneNumber(String phoneNumber) throws UserValidatorException
 	{
 		try
