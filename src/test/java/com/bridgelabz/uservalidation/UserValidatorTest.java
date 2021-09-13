@@ -263,14 +263,14 @@ public class UserValidatorTest
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abc12@we3");
+		boolean isValid=userValidator.validatePassword.validate("Abc12@we3");
 		Assert.assertTrue(isValid);
 	}
 	@Test
 	public void givenPassword_WhenLessThanEightCharacters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("A3bc1@");
+		boolean isValid=userValidator.validatePassword.validate("A3bc1@");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -279,7 +279,7 @@ public class UserValidatorTest
 	public void givenPassword_WhenNoUpperCaseLetters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("azaz3bc1@");
+		boolean isValid=userValidator.validatePassword.validate("azaz3bc1@");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -287,7 +287,7 @@ public class UserValidatorTest
 	public void givenPassword_WhenNoNumbers_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abcdef@ghij");
+		boolean isValid=userValidator.validatePassword.validate("Abcdef@ghij");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -295,7 +295,7 @@ public class UserValidatorTest
 	public void givenPassword_WhenNoSpecialCharacters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abc123456av");
+		boolean isValid=userValidator.validatePassword.validate("Abc123456av");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -303,7 +303,7 @@ public class UserValidatorTest
 	public void givenPassword_WhenMoreThanOneSpecialCharacters_ShouldReturnFalse()
 	{
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePassword("Abc12345@@@");
+		boolean isValid=userValidator.validatePassword.validate("Abc12345@@@");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -315,7 +315,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validatePassword(null);
+			userValidator.validatePassword.validate(null);
 
 		}
 		catch (UserValidatorException e) 
@@ -332,7 +332,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validatePassword("");
+			userValidator.validatePassword.validate("");
 
 		} catch (UserValidatorException e) 
 		{
