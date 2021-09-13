@@ -16,7 +16,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emma");
+		boolean isValid=userValidator.validateName.validate("Emma");
 		Assert.assertTrue(isValid);
 
 	}
@@ -25,7 +25,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Em");
+		boolean isValid=userValidator.validateName.validate("Em");
 		Assert.assertFalse(isValid);
 
 	}
@@ -34,7 +34,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emm@");
+		boolean isValid=userValidator.validateName.validate("Emm@");
 		Assert.assertFalse(isValid);
 
 	}
@@ -43,7 +43,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emma123");
+		boolean isValid=userValidator.validateName.validate("Emma123");
 		Assert.assertFalse(isValid);
 
 	}
@@ -55,7 +55,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validateName(null);
+			userValidator.validateName.validate(null);
 
 		} catch (UserValidatorException e) 
 		{
@@ -70,7 +70,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validateName("");
+			userValidator.validateName.validate("");
 
 		} catch (UserValidatorException e) 
 		{
@@ -85,7 +85,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Wilson");
+		boolean isValid=userValidator.validateName.validate("Wilson");
 		Assert.assertTrue(isValid);
 
 	}
@@ -94,7 +94,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Em");
+		boolean isValid=userValidator.validateName.validate("Em");
 		Assert.assertFalse(isValid);
 
 	}
@@ -103,7 +103,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("Emm@");
+		boolean isValid=userValidator.validateName.validate("Emm@");
 		Assert.assertFalse(isValid);
 
 	}
@@ -112,7 +112,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateName("willson123");
+		boolean isValid=userValidator.validateName.validate("willson123");
 		Assert.assertFalse(isValid);
 
 	}
@@ -125,7 +125,7 @@ public class UserValidatorTest
 		try 
 		{
 
-			userValidator.validateName(null);
+			userValidator.validateName.validate(null);
 
 		} catch (UserValidatorException e) 
 		{
@@ -140,7 +140,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validateName("");
+			userValidator.validateName.validate("");
 
 		} catch (UserValidatorException e) 
 		{
