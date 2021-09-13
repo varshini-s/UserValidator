@@ -154,7 +154,7 @@ public class UserValidatorTest
 	{
 
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateEMail("abc@gmail.com");
+		boolean isValid=userValidator.validateEMail.validate("abc@gmail.com");
 		Assert.assertTrue(isValid);
 
 	}
@@ -163,7 +163,7 @@ public class UserValidatorTest
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validateEMail("abcgmail.com");
+		boolean isValid=userValidator.validateEMail.validate("abcgmail.com");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -178,7 +178,7 @@ public class UserValidatorTest
 		try 
 		{
 
-			userValidator.validateEMail(null);
+			userValidator.validateEMail.validate(null);
 
 		}
 		catch (UserValidatorException e) 
@@ -194,7 +194,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validateEMail("");
+			userValidator.validateEMail.validate("");
 
 		} catch (UserValidatorException e) 
 		{

@@ -55,7 +55,7 @@ public class ValidEmailTest
 		public void givenEmailAsVariable_ShouldReturnAsPerTheParameteriszedResult() 
 		{
 			UserValidator userValidator = new UserValidator();
-			boolean result=userValidator.validateEMail(this.emailTotest);
+			boolean result=userValidator.validateEMail.validate(this.emailTotest);
 			Assert.assertEquals(this.expectedResult, result);
 		}
 	 
