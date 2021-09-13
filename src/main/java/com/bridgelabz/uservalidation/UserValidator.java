@@ -84,10 +84,7 @@ public class UserValidator
 		
 	};
 	
-	
-	public boolean validatePassword(String passWord) throws UserValidatorException
-	{
-		try
+	ValidationIF validatePassword=passWord->{try
 		{
 			if(passWord.isEmpty())
 			{
@@ -97,18 +94,19 @@ public class UserValidator
 			{		
 				Pattern pattern = Pattern.compile(PASSWORD_PATERN);
 				return pattern.matcher(passWord).matches();
-
+	
 			}
-
-
+	
+	
 		}
-
+	
 		catch (NullPointerException e) 
 		{
 			throw new UserValidatorException(ExceptionType.ENTERED_NULL,"Please enter valid password");
 		}
+		
+	};
 
-	}
 
 
 }
