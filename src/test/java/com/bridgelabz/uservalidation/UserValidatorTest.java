@@ -209,7 +209,7 @@ public class UserValidatorTest
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePhoneNumber("91 9191123498");
+		boolean isValid=userValidator.validatePhoneNumber.validate("91 9191123498");
 		Assert.assertTrue(isValid);
 		
 	}
@@ -219,7 +219,7 @@ public class UserValidatorTest
 	{
 			
 		UserValidator userValidator = new UserValidator();
-		boolean isValid=userValidator.validatePhoneNumber("123456789");
+		boolean isValid=userValidator.validatePhoneNumber.validate("123456789");
 		Assert.assertFalse(isValid);
 		
 	}
@@ -233,7 +233,7 @@ public class UserValidatorTest
 		try 
 		{
 
-			userValidator.validatePhoneNumber(null);
+			userValidator.validatePhoneNumber.validate(null);
 
 		}
 		catch (UserValidatorException e) 
@@ -250,7 +250,7 @@ public class UserValidatorTest
 
 		try 
 		{
-			userValidator.validatePhoneNumber("");
+			userValidator.validatePhoneNumber.validate("");
 
 		} catch (UserValidatorException e) 
 		{
