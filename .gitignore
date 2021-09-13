@@ -7,7 +7,7 @@
 .settings
 .classpath
 *.class
-settings.gradle
+
 gradlew
 gradlew.bat
 .gitattributes
